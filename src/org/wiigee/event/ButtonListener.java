@@ -1,7 +1,7 @@
 /*
  * wiigee - accelerometerbased gesture recognition
- * Copyright (C) 2007, 2008 Benjamin Poppinga
- * 
+ * Copyright (C) 2007, 2008, 2009 Benjamin Poppinga
+ *
  * Developed at University of Oldenburg
  * Contact: benjamin.poppinga@informatik.uni-oldenburg.de
  *
@@ -16,7 +16,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -24,40 +24,31 @@
 
 package org.wiigee.event;
 
-import java.util.EventObject;
-import org.wiigee.device.Device;
+import java.util.EventListener;
 
-public class InfraredEvent extends EventObject {
+/**
+ * This interface has to be implemented if the application should react
+ * to button press/releases.
+ *
+ * @author Benjamin 'BePo' Poppinga
+ */
+public interface ButtonListener extends EventListener {
 
-	protected Device wiimote;
-	protected int[][] coordinates;
-	protected int[] size;
-	protected boolean[] valid;
-	
-	public InfraredEvent(Device source, int[][] coordinates, int[] size) {
-		super(source);
-		this.coordinates=coordinates;
-		this.size=size;
-		this.valid = new boolean[4];
-		for(int i=0; i<this.coordinates.length; i++) {
-			this.valid[i] = (this.coordinates[i][0]<1023 && this.coordinates[i][1]<1023);
-		}
-	}
-	
-	public Device getSource() {
-		return this.wiimote;
-	}
-	
-	public boolean isValid(int i) {
-		return this.valid[i];
-	}
-	
-	public int[][] getCoordinates() {
-		return this.coordinates;
-	}
-	
-	public int[] getSize() {
-		return this.size;
-	}
+
+	/**
+	 * This method would be called if a Device button has been pressed.
+	 *
+	 * @param event The button representation as an event.
+	 */
+	public abstract void buttonPressReceived(ButtonPressedEvent event);
+
+	/**
+	 * This method would be called if a Device button has been released.
+	 *
+	 * @param event This is actually a meta-event NOT containing which button
+	 * has been released.
+	 */
+	public abstract void buttonReleaseReceived(ButtonReleasedEvent event);
+
 
 }

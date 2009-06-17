@@ -1,6 +1,6 @@
 /*
  * wiigee - accelerometerbased gesture recognition
- * Copyright (C) 2007, 2008 Benjamin Poppinga
+ * Copyright (C) 2007, 2008, 2009 Benjamin Poppinga
  * 
  * Developed at University of Oldenburg
  * Contact: benjamin.poppinga@informatik.uni-oldenburg.de
@@ -28,40 +28,24 @@ import java.util.EventListener;
 
 /**
  * This interface has to be implemented if the application should react
- * to pure acceleration data or button press/release. This could be
- * useful if you want to graphically display the acceleration data or
- * something else in your application.
+ * to pure acceleration data. This could be useful if you want to e.g.
+ * graphically display the acceleration data in your application.
  *
  * @author Benjamin 'BePo' Poppinga
  */
-public interface DeviceListener extends EventListener {
+public interface AccelerationListener extends EventListener {
 	
 	/**
-	 * This method would be called if a Wiimote source has been accelerated.
+	 * This method would be called if a Device source has been accelerated.
 	 * 
 	 * @param event The acceleration representation as an event.
 	 */
 	public abstract void accelerationReceived(AccelerationEvent event);
 	
 	/**
-	 * This method would be called if a Wiimote button has been pressed.
-	 * 
-	 * @param event The button representation as an event.
-	 */
-	public abstract void buttonPressReceived(ButtonPressedEvent event);
-	
-	/**
-	 * This method would be called if a Wiimote button has been released.
-	 * 
-	 * @param event This is actually a meta-event NOT containing which button
-	 * has been released.
-	 */
-	public abstract void buttonReleaseReceived(ButtonReleasedEvent event);
-	
-	/**
-	 * This method would be called if a Wiimote is in idle state and then a
-	 * motion starts or if a Wiimote is in motion and then the motion stops and
-	 * the Wiimote is in idle state.
+	 * This method would be called if a Device is in idle state and then a
+	 * motion starts or if a Device is in motion and then the motion stops and
+	 * the Device is in idle state.
 	 * 
 	 * @param event This is the event which contains if the Wiimote is now
 	 * in motion or not.
@@ -69,15 +53,13 @@ public interface DeviceListener extends EventListener {
 	public abstract void motionStartReceived(MotionStartEvent event);
 	
 	/**
-	 * This method would be called if a Wiimote is in motion and then the motion
-	 * stops and the Wiimote is in idle state.
+	 * This method would be called if a Device is in motion and then the motion
+	 * stops and the Device is in idle state.
 	 * 
-	 * @param event This is the event which contains if the Wiimote is now
+	 * @param event This is the event which contains if the Device is now
 	 * in motion or not.
 	 */
 	public abstract void motionStopReceived(MotionStopEvent event);
-	
-	public abstract void infraredReceived(InfraredEvent event);
 	
 
 }
