@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+group = 'org.wiigee'
+archivesBaseName = 'wiigee'
+version = '1.5.6'
+
+repositories {
+    mavenCentral() 
+}
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('.maven'))
+    }
+}
