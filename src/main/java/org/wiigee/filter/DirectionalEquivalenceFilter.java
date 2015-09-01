@@ -31,40 +31,40 @@ package org.wiigee.filter;
  * @author Benjamin 'BePo' Poppinga
  */
 public class DirectionalEquivalenceFilter extends Filter {
-	
-	private double sensivity;
-	private double[] reference;
+    
+    private double sensivity;
+    private double[] reference;
 
-	public DirectionalEquivalenceFilter() {
-		super();
-		this.reset();
-	}
-	
-	public void reset() {
-		this.sensivity=0.2;
-		this.reference = new double[] {0.0, 0.0, 0.0};
-	}
-	
-	public double[] filterAlgorithm(double[] vector) {
-		if(vector[0]<reference[0]-this.sensivity ||
-		   vector[0]>reference[0]+this.sensivity ||
-		   vector[1]<reference[1]-this.sensivity ||
-		   vector[1]>reference[1]+this.sensivity ||
-		   vector[2]<reference[2]-this.sensivity ||
-		   vector[2]>reference[2]+this.sensivity) {
-			this.reference=vector;
-			return vector;
-		} else {
-			return null;
-		}
-	}
-	
-	public void setSensivity(double sensivity) {
-		this.sensivity=sensivity;
-	}
-	
-	public double getSensivity() {
-		return this.sensivity;
-	}
+    public DirectionalEquivalenceFilter() {
+        super();
+        this.reset();
+    }
+    
+    public void reset() {
+        this.sensivity=0.2;
+        this.reference = new double[] {0.0, 0.0, 0.0};
+    }
+    
+    public double[] filterAlgorithm(double[] vector) {
+        if(vector[0]<reference[0]-this.sensivity ||
+           vector[0]>reference[0]+this.sensivity ||
+           vector[1]<reference[1]-this.sensivity ||
+           vector[1]>reference[1]+this.sensivity ||
+           vector[2]<reference[2]-this.sensivity ||
+           vector[2]>reference[2]+this.sensivity) {
+            this.reference=vector;
+            return vector;
+        } else {
+            return null;
+        }
+    }
+    
+    public void setSensivity(double sensivity) {
+        this.sensivity=sensivity;
+    }
+    
+    public double getSensivity() {
+        return this.sensivity;
+    }
 
 }

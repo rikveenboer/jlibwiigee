@@ -32,32 +32,32 @@ import org.wiigee.device.Device;
  * @author Benjamin 'BePo' Poppinga
  */
 public class MotionStartEvent extends ActionStartEvent {
-	
-	public MotionStartEvent(Device source) {
-		super(source);
-		
-		if(source.getRecognitionButton()==Device.MOTION) {
-			this.recognitionbutton=true;
-		} else if(source.getTrainButton()==Device.MOTION) {
-			this.trainbutton=true;
-		} else if(source.getCloseGestureButton()==Device.MOTION) {
-			this.closegesturebutton=true;
-		}
-	}
-	
-	@Override
-	public boolean isTrainInitEvent() {
-		return this.trainbutton;
-	}
-	
-	@Override
-	public boolean isCloseGestureInitEvent() {
-		return this.closegesturebutton;
-	}
-	
-	@Override
-	public boolean isRecognitionInitEvent() {
-		return this.recognitionbutton;
-	}
+    
+    public MotionStartEvent(Device source) {
+        super(source);
+        
+        if(source.getRecognitionButton()==Device.MOTION) {
+            this.recognitionbutton=true;
+        } else if(source.getTrainButton()==Device.MOTION) {
+            this.trainbutton=true;
+        } else if(source.getCloseGestureButton()==Device.MOTION) {
+            this.closegesturebutton=true;
+        }
+    }
+    
+    @Override
+    public boolean isTrainInitEvent() {
+        return this.trainbutton;
+    }
+    
+    @Override
+    public boolean isCloseGestureInitEvent() {
+        return this.closegesturebutton;
+    }
+    
+    @Override
+    public boolean isRecognitionInitEvent() {
+        return this.recognitionbutton;
+    }
 
 }

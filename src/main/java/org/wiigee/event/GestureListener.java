@@ -36,12 +36,12 @@ import java.util.EventListener;
  */
 public interface GestureListener extends EventListener {
 
-	/**
-	 * This method would be called if a gesture has been recognized.
-	 * 
-	 * @param event The GestureEvent containing information about
-	 * the recognized gesture.
-	 */
-	public abstract void gestureReceived(GestureEvent event);
-	
+    /**
+     * This method would be called if a gesture has been recognized.
+     * 
+     * @param event The GestureEvent containing information about
+     * the recognized gesture.
+     */
+    public abstract void gestureReceived(GestureEvent event);
+    
 }

@@ -37,13 +37,13 @@ public class ButtonReleasedEvent extends ActionStopEvent {
 
         int button;
 
-	public ButtonReleasedEvent(Device source, int button) {
-		super(source);
+    public ButtonReleasedEvent(Device source, int button) {
+        super(source);
                 this.button = button;
-	}
+    }
 
         public int getButton() {
             return this.button;
         }
-	
+    
 }

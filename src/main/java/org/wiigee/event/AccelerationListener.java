@@ -34,32 +34,32 @@ import java.util.EventListener;
  * @author Benjamin 'BePo' Poppinga
  */
 public interface AccelerationListener extends EventListener {
-	
-	/**
-	 * This method would be called if a Device source has been accelerated.
-	 * 
-	 * @param event The acceleration representation as an event.
-	 */
-	public abstract void accelerationReceived(AccelerationEvent event);
-	
-	/**
-	 * This method would be called if a Device is in idle state and then a
-	 * motion starts or if a Device is in motion and then the motion stops and
-	 * the Device is in idle state.
-	 * 
-	 * @param event This is the event which contains if the Wiimote is now
-	 * in motion or not.
-	 */
-	public abstract void motionStartReceived(MotionStartEvent event);
-	
-	/**
-	 * This method would be called if a Device is in motion and then the motion
-	 * stops and the Device is in idle state.
-	 * 
-	 * @param event This is the event which contains if the Device is now
-	 * in motion or not.
-	 */
-	public abstract void motionStopReceived(MotionStopEvent event);
-	
+    
+    /**
+     * This method would be called if a Device source has been accelerated.
+     * 
+     * @param event The acceleration representation as an event.
+     */
+    public abstract void accelerationReceived(AccelerationEvent event);
+    
+    /**
+     * This method would be called if a Device is in idle state and then a
+     * motion starts or if a Device is in motion and then the motion stops and
+     * the Device is in idle state.
+     * 
+     * @param event This is the event which contains if the Wiimote is now
+     * in motion or not.
+     */
+    public abstract void motionStartReceived(MotionStartEvent event);
+    
+    /**
+     * This method would be called if a Device is in motion and then the motion
+     * stops and the Device is in idle state.
+     * 
+     * @param event This is the event which contains if the Device is now
+     * in motion or not.
+     */
+    public abstract void motionStopReceived(MotionStopEvent event);
+    
 
 }

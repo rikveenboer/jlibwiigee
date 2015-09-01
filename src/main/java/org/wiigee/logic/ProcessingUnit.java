@@ -29,7 +29,7 @@ public abstract class ProcessingUnit implements AccelerationListener, ButtonList
      * Add an GestureListener to receive GestureEvents.
      *
      * @param g
-     * 	Class which implements GestureListener interface.
+     *     Class which implements GestureListener interface.
      */
     public void addGestureListener(GestureListener g) {
         this.gesturelistener.add(g);

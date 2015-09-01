@@ -35,8 +35,8 @@ import org.wiigee.device.Device;
 */
 public class MotionStopEvent extends ActionStopEvent {
 
-	public MotionStopEvent(Device source) {
-		super(source);
-	}
-	
+    public MotionStopEvent(Device source) {
+        super(source);
+    }
+    
 }

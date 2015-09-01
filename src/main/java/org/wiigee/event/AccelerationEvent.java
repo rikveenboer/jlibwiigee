@@ -38,42 +38,42 @@ import org.wiigee.device.*;
  * 
  */
 public class AccelerationEvent extends EventObject {
-	
-	double X, Y, Z;
-	double absvalue;
-	
-	/**
-	 * Create an AccelerationEvent with a specific source,
-	 * all the three acceleration values and the calculated absolute
-	 * value.
-	 * 
-	 * @param source The source which has been accelerated (Wiimote).
-	 * @param X The value of acceleration in the x direction.
-	 * @param Y The value of acceleration in the y direction.
-	 * @param Z The value of acceleration in the z direction.
-	 * @param absvalue The absolute value of this acceleration vector.
-	 */
-	public AccelerationEvent(Device source, double X, double Y, double Z, double absvalue) {
-		super(source);
-		this.X=X;
-		this.Y=Y;
-		this.Z=Z;
-		this.absvalue=absvalue;
-	}
+    
+    double X, Y, Z;
+    double absvalue;
+    
+    /**
+     * Create an AccelerationEvent with a specific source,
+     * all the three acceleration values and the calculated absolute
+     * value.
+     * 
+     * @param source The source which has been accelerated (Wiimote).
+     * @param X The value of acceleration in the x direction.
+     * @param Y The value of acceleration in the y direction.
+     * @param Z The value of acceleration in the z direction.
+     * @param absvalue The absolute value of this acceleration vector.
+     */
+    public AccelerationEvent(Device source, double X, double Y, double Z, double absvalue) {
+        super(source);
+        this.X=X;
+        this.Y=Y;
+        this.Z=Z;
+        this.absvalue=absvalue;
+    }
 
-	public double getX() {
-		return X;
-	}
+    public double getX() {
+        return X;
+    }
 
-	public double getY() {
-		return Y;
-	}
+    public double getY() {
+        return Y;
+    }
 
-	public double getZ() {
-		return Z;
-	}
-	
-	public double getAbsValue() {
-		return absvalue;
-	}
+    public double getZ() {
+        return Z;
+    }
+    
+    public double getAbsValue() {
+        return absvalue;
+    }
 }

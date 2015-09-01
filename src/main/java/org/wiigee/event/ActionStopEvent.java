@@ -35,9 +35,9 @@ import org.wiigee.device.Device;
  * @author Benjamin 'BePo' Poppinga
  */
 public class ActionStopEvent extends EventObject {
-	
-	public ActionStopEvent(Device source) {
-		super(source);
-	}
+    
+    public ActionStopEvent(Device source) {
+        super(source);
+    }
 
 }

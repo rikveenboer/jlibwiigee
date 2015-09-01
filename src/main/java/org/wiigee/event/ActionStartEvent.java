@@ -37,48 +37,48 @@ import org.wiigee.device.Device;
  */
 public class ActionStartEvent extends EventObject {
 
-	protected boolean trainbutton;
-	protected boolean recognitionbutton;
-	protected boolean closegesturebutton;
-	
-	public ActionStartEvent(Device source) {
-		super(source);
-	}
-	
-	/**
-	 * Is true if this button press has been done by the
-	 * individual defined RecognitionButton which has to be
-	 * set during initialization of a Wiimote.
-	 * 
-	 * @return Is this button press initiated by the recognition button.
-	 * @see device.Wiimote#setRecognitionButton(int) setRecognitionButton()
-	 */
-	public boolean isRecognitionInitEvent() {
-		return this.recognitionbutton;
-	}
-	
-	/**
-	 * Is true if this button press has been done by the
-	 * individual defined TrainButton which has to be
-	 * set during initialization of a Wiimote.
-	 * 
-	 * @return Is this button pres initiated by the training button.
-	 * @see device.Wiimote#setTrainButton(int) setTrainButton()
-	 */
-	public boolean isTrainInitEvent() {
-		return this.trainbutton;
-	}
-	
-	/**
-	 * Is true if this button press has been done by the
-	 * individual defined CloseGestureButton which has to be
-	 * set during initialization of a Wiimote.
-	 * 
-	 * @return Is this button press initiated by the close gesture button.
-	 * @see device.Wiimote#setCloseGestureButton(int) setCloseGestureButton()
-	 */
-	public boolean isCloseGestureInitEvent() {
-		return this.closegesturebutton;
-	}
+    protected boolean trainbutton;
+    protected boolean recognitionbutton;
+    protected boolean closegesturebutton;
+    
+    public ActionStartEvent(Device source) {
+        super(source);
+    }
+    
+    /**
+     * Is true if this button press has been done by the
+     * individual defined RecognitionButton which has to be
+     * set during initialization of a Wiimote.
+     * 
+     * @return Is this button press initiated by the recognition button.
+     * @see device.Wiimote#setRecognitionButton(int) setRecognitionButton()
+     */
+    public boolean isRecognitionInitEvent() {
+        return this.recognitionbutton;
+    }
+    
+    /**
+     * Is true if this button press has been done by the
+     * individual defined TrainButton which has to be
+     * set during initialization of a Wiimote.
+     * 
+     * @return Is this button pres initiated by the training button.
+     * @see device.Wiimote#setTrainButton(int) setTrainButton()
+     */
+    public boolean isTrainInitEvent() {
+        return this.trainbutton;
+    }
+    
+    /**
+     * Is true if this button press has been done by the
+     * individual defined CloseGestureButton which has to be
+     * set during initialization of a Wiimote.
+     * 
+     * @return Is this button press initiated by the close gesture button.
+     * @see device.Wiimote#setCloseGestureButton(int) setCloseGestureButton()
+     */
+    public boolean isCloseGestureInitEvent() {
+        return this.closegesturebutton;
+    }
 
 }

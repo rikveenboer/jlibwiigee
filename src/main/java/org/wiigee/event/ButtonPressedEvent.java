@@ -37,44 +37,44 @@ import org.wiigee.device.*;
  * @author Benjamin 'BePo' Poppinga
  */
 public class ButtonPressedEvent extends ActionStartEvent {
-	
-	// Fixed number values.
-	public static final int BUTTON_2 = 1;
-	public static final int BUTTON_1 = 2;
-	public static final int BUTTON_B = 3;
-	public static final int BUTTON_A = 4;
-	public static final int BUTTON_MINUS = 5;
-	public static final int BUTTON_HOME = 8;
-	public static final int BUTTON_LEFT = 9;
-	public static final int BUTTON_RIGHT = 10;
-	public static final int BUTTON_DOWN = 11;
-	public static final int BUTTON_UP = 12;
-	public static final int BUTTON_PLUS = 13;
-	
-	int button;
+    
+    // Fixed number values.
+    public static final int BUTTON_2 = 1;
+    public static final int BUTTON_1 = 2;
+    public static final int BUTTON_B = 3;
+    public static final int BUTTON_A = 4;
+    public static final int BUTTON_MINUS = 5;
+    public static final int BUTTON_HOME = 8;
+    public static final int BUTTON_LEFT = 9;
+    public static final int BUTTON_RIGHT = 10;
+    public static final int BUTTON_DOWN = 11;
+    public static final int BUTTON_UP = 12;
+    public static final int BUTTON_PLUS = 13;
+    
+    int button;
 
-	/**
-	 * Create a WiimoteButtonPressedEvent with the Wiimote source whose
-	 * Button has been pressed and the integer representation of the button.
-	 * 
-	 * @param source
-	 * @param button
-	 */
-	public ButtonPressedEvent(Device source, int button) {
-		super(source);
-		this.button=button;
-		
-		if(source.getRecognitionButton()==button) {
-			this.recognitionbutton=true;
-		} else if(source.getTrainButton()==button) {
-			this.trainbutton=true;
-		} else if(source.getCloseGestureButton()==button) {
-			this.closegesturebutton=true;
-		}
-	}
-	
-	public int getButton() {
-		return this.button;
-	}
-	
+    /**
+     * Create a WiimoteButtonPressedEvent with the Wiimote source whose
+     * Button has been pressed and the integer representation of the button.
+     * 
+     * @param source
+     * @param button
+     */
+    public ButtonPressedEvent(Device source, int button) {
+        super(source);
+        this.button=button;
+        
+        if(source.getRecognitionButton()==button) {
+            this.recognitionbutton=true;
+        } else if(source.getTrainButton()==button) {
+            this.trainbutton=true;
+        } else if(source.getCloseGestureButton()==button) {
+            this.closegesturebutton=true;
+        }
+    }
+    
+    public int getButton() {
+        return this.button;
+    }
+    
 }

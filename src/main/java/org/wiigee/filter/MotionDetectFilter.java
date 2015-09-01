@@ -34,69 +34,69 @@ import org.wiigee.device.Device;
  */
 public class MotionDetectFilter extends Filter {
 
-	private int motionchangetime;
-	private boolean nowinmotion;
-	private long motionstartstamp;
-	private Device device;
-	
-	/***
-	 * Detects wheather the wiimote receives acceleration or not and
-	 * raises an event, if the device starts or stops. This is actual a
-	 * null filter, not manipulating anything. But looks pretty good in
-	 * this datatype since it could be removed easily.
-	 * 
-	 * @param wiimote The Wiimote object which is controlled by the filter.
-	 */
-	public MotionDetectFilter(Device device) {
-		super();
-		this.device=device;
-		this.reset();
-	}
-	
-	public void reset() {
-		this.motionstartstamp=System.currentTimeMillis();
-		this.nowinmotion=false;
-		this.motionchangetime=190;
-	}
-	
+    private int motionchangetime;
+    private boolean nowinmotion;
+    private long motionstartstamp;
+    private Device device;
+    
+    /***
+     * Detects wheather the wiimote receives acceleration or not and
+     * raises an event, if the device starts or stops. This is actual a
+     * null filter, not manipulating anything. But looks pretty good in
+     * this datatype since it could be removed easily.
+     * 
+     * @param wiimote The Wiimote object which is controlled by the filter.
+     */
+    public MotionDetectFilter(Device device) {
+        super();
+        this.device=device;
+        this.reset();
+    }
+    
+    public void reset() {
+        this.motionstartstamp=System.currentTimeMillis();
+        this.nowinmotion=false;
+        this.motionchangetime=190;
+    }
+    
     @Override
-	public double[] filter(double[] vector) {
-		
-		if(this.nowinmotion &&
-				(System.currentTimeMillis()-this.motionstartstamp)>=
-					this.motionchangetime) {
-			this.nowinmotion=false;
-			this.device.fireMotionStopEvent();
-		} // fi
-		
-		return filterAlgorithm(vector);
-	}
-	
-	public double[] filterAlgorithm(double[] vector) {
-		if(vector!=null) {
-			this.motionstartstamp=System.currentTimeMillis();
-			if(!this.nowinmotion) {
-				this.nowinmotion=true;
-				this.motionstartstamp=System.currentTimeMillis();
-				this.device.fireMotionStartEvent();
-			}
-		}
-		
-		return vector;
-	}
-	
-	/**
-	 * Defines the time the wiimote has to be in idle state before a new motion change
-	 * event appears. The default value 500ms should work well, only change it if you are sure
-	 * about what you're doing.
-	 * @param time Time in ms
-	 */
-	public void setMotionChangeTime(int time) {
-		this.motionchangetime=time;
-	}
-	
-	public int getMotionChangeTime() {
-		return this.motionchangetime;
-	}
+    public double[] filter(double[] vector) {
+        
+        if(this.nowinmotion &&
+                (System.currentTimeMillis()-this.motionstartstamp)>=
+                    this.motionchangetime) {
+            this.nowinmotion=false;
+            this.device.fireMotionStopEvent();
+        } // fi
+        
+        return filterAlgorithm(vector);
+    }
+    
+    public double[] filterAlgorithm(double[] vector) {
+        if(vector!=null) {
+            this.motionstartstamp=System.currentTimeMillis();
+            if(!this.nowinmotion) {
+                this.nowinmotion=true;
+                this.motionstartstamp=System.currentTimeMillis();
+                this.device.fireMotionStartEvent();
+            }
+        }
+        
+        return vector;
+    }
+    
+    /**
+     * Defines the time the wiimote has to be in idle state before a new motion change
+     * event appears. The default value 500ms should work well, only change it if you are sure
+     * about what you're doing.
+     * @param time Time in ms
+     */
+    public void setMotionChangeTime(int time) {
+        this.motionchangetime=time;
+    }
+    
+    public int getMotionChangeTime() {
+        return this.motionchangetime;
+    }
 
 }
